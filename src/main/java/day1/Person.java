@@ -36,9 +36,10 @@ public class Person {
 
     /**
      * Возвращает возраст человека, на основе его даты рождения
+     *
      * @return колличество лет
      */
     public int getAge() {
-        return  DateTime.now().getYear() - birthDay.getYear();
+        return DateTime.now().getYear() - birthDay.getYear();
     }
 }

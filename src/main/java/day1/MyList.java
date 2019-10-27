@@ -65,12 +65,10 @@ public class MyList<T> {
      * @param value значение удаляемого элемента
      */
     public void remove(T value) {
-
         int k = 0;
         while (!array[k].equals(value) && k < count) {
             k++;
         }
-
         removeAt(k);
     }
 

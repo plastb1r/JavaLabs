@@ -30,16 +30,17 @@ public class Main {
         System.out.println();
 
         list.removeAt(0);
-
         for (int i = 0; i < list.getCount(); i++) {
             System.out.println(list.get(i).getFirstName());
         }
         System.out.println();
 
         list.insert(3, person1);
-
         for (int i = 0; i < list.getCount(); i++) {
             System.out.println(list.get(i).getFirstName());
         }
+        System.out.println();
+
+        System.out.println(list.get(1).getAge());
     }
 }
