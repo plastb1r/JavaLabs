@@ -2,6 +2,12 @@ package day1;
 
 import org.joda.time.DateTime;
 
+import java.util.Comparator;
+import java.util.TreeSet;
+
+/**
+ * Тестовый класс, описывающий человека
+ */
 public class Person {
     private int id;
     private String firstName;
@@ -16,6 +22,20 @@ public class Person {
         this.secondName = secondName;
         this.gender = gender;
         this.birthDay = birthDay;
+    }
+
+    /**
+     * Возвращает возраст человека,
+     * на основе его даты рождения
+     *
+     * @return колличество лет
+     */
+    public int getAge() {
+        return DateTime.now().getYear() - birthDay.getYear();
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId() {
@@ -34,12 +54,20 @@ public class Person {
         return gender;
     }
 
-    /**
-     * Возвращает возраст человека, на основе его даты рождения
-     *
-     * @return колличество лет
-     */
-    public int getAge() {
-        return DateTime.now().getYear() - birthDay.getYear();
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setBirthDay(DateTime birthDay) {
+        this.birthDay = birthDay;
+    }
+
 }

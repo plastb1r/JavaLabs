@@ -1,17 +1,29 @@
 package day1;
 
-import java.lang.reflect.Array;
+import java.util.Comparator;
+import java.util.TreeSet;
 
 public class MyList<T> {
-
+    /**
+     * Массивы, необходимые для хранения элементов,
+     * и реализации функционала класса
+     */
     private T[] array;
     private T[] tempArray;
 
     private int count;
 
+    Comparator<Object> comparator;
+
     public MyList() {
         array = (T[]) new Object[16];
         count = 0;
+    }
+
+    public MyList(Comparator comparator) {
+        array = (T[]) new Object[16];
+        count = 0;
+        this.comparator = comparator;
     }
 
     /**
@@ -37,7 +49,8 @@ public class MyList<T> {
     }
 
     /**
-     * Вставка нового элемента по определенному индексу.
+     * Вставка нового элемента
+     * по определенному индексу.
      * со сдвигом последующих элементов
      *
      * @param index место вставки
@@ -60,7 +73,8 @@ public class MyList<T> {
     }
 
     /**
-     * Удаление первого встречного элемента из списка по значению.
+     * Удаление первого встречного элемента
+     * из списка по значению.
      *
      * @param value значение удаляемого элемента
      */
@@ -91,7 +105,7 @@ public class MyList<T> {
     /**
      * возвращает количество элементов в списке.
      *
-     * @return
+     * @return количество элементов
      */
     public int getCount() {
         return count;
@@ -99,8 +113,36 @@ public class MyList<T> {
 
     public T get(int index) {
         if (index < 0 || index >= count) {
-            return null;
+            return null;    //Optional.empty
         }
         return array[index];
+    }
+
+    public void sort() {
+        if (count == 0 || count == 1)
+            return;
+        for (int i = 0; i < count-1;i++) {
+            int cmp = compare(array[i],array[i+1]);
+            if(cmp>0) {
+               T temp =  array[i];
+               array[i] = array[i+1];
+               array[i+1] = temp;
+                if(i>0)
+                    i-=2;
+            }
+        }
+    }
+
+    private int compare(Object k1, Object k2) {
+        return this.comparator == null ? ((Comparable) k1).compareTo(k2) : this.comparator.compare(k1, k2);
+    }
+
+    public int search(T obj) {
+        for (int i = 0; i < count; i++) {
+            if(array[i].hashCode() == obj.hashCode()) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
