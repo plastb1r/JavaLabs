@@ -2,16 +2,15 @@ package day2;
 
 import day1.*;
 import org.joda.time.DateTime;
+import ru.vsu.lab.entities.IPerson;
 
 import java.util.Comparator;
 
-//todo()
-// - сортировка по разным полям
-// - поиск
 public class Main {
     public static void main(String[] args) {
-        Comparator<Person> pcomp = new PersonNameComparator().thenComparing(new PersonAgeComparator());
-       // Comparator<Person> pcomp = new PersonNameComparator();
+
+        Comparator<IPerson> pcomp = new PersonNameComparator().thenComparing(new PersonAgeComparator());
+        //Comparator<Person> pcomp = new PersonNameComparator();
         //Comparator<Person> pcomp = new PersonAgeComparator();
         MyList<Person> list = new MyList<>(pcomp);
 

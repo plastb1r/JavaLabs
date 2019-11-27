@@ -117,7 +117,6 @@ public class MyList<T> {
         }
         return array[index];
     }
-
     public void sort() {
         if (count == 0 || count == 1)
             return;
