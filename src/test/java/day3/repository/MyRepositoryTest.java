@@ -4,7 +4,6 @@ import day1.PersonAgeComparator;
 import day3.entities.Division;
 import day3.entities.Person;
 import junit.framework.Assert;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.vsu.lab.entities.enums.Gender;
@@ -12,8 +11,6 @@ import ru.vsu.lab.entities.enums.Gender;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.function.Predicate;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class MyRepositoryTest {
 
@@ -93,7 +90,7 @@ class MyRepositoryTest {
 
         Assert.assertTrue(rep.get(0).equals(person1));
 
-        rep.set(0,person4);
+        rep.set(0, person4);
 
         Assert.assertFalse(rep.get(0).equals(person1));
     }

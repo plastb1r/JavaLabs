@@ -1,5 +1,6 @@
 package day3.entities;
 
+import day3.DI.Inject;
 import ru.vsu.lab.entities.IDivision;
 import ru.vsu.lab.entities.IPerson;
 import ru.vsu.lab.entities.enums.Gender;
@@ -15,6 +16,7 @@ public class Person implements IPerson {
     private Gender gender;
     private LocalDate birthDay;
 
+    @Inject
     private IDivision division;
     private BigDecimal salary;
 
@@ -27,6 +29,16 @@ public class Person implements IPerson {
         this.birthDay = birthDay;
         this.division = division;
         this.salary = salary;
+    }
+
+    public Person() {
+        this.id = 0;
+        this.firstName = "";
+        this.lastName = "";
+        this.gender = Gender.MALE;
+        this.birthDay = LocalDate.now();
+        this.division = null;
+        this.salary = new BigDecimal("0");
     }
 
     @Override
@@ -104,6 +116,10 @@ public class Person implements IPerson {
         this.salary = salary;
     }
 
+    public double getDoubleSalary() {
+        return Integer.parseInt(this.salary.toString());
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -115,6 +131,19 @@ public class Person implements IPerson {
                 this.division.getId() == person.division.getId() &&
                 this.division.getName().equals(person.division.getName()) &&
                 this.salary.toString().equals(person.salary.toString());
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", gender=" + gender +
+                ", birthDay=" + birthDay +
+                ", division=" + division +
+                ", salary=" + salary +
+                '}';
     }
 
     @Override

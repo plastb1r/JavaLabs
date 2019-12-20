@@ -1,0 +1,82 @@
+package day3.DI;
+
+
+import java.io.File;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
+
+import day1.Person;
+import day1.PersonAgeComparator;
+import day3.sorts.QuickSort;
+
+public class MyDIAndIoC {
+
+    private static HashMap<String, Object> context = new HashMap<>();
+
+    public static HashMap<String, Object> getContext() {
+        return context;
+    }
+
+    public MyDIAndIoC() {
+        loadBeans();
+    }
+
+    public static void ClearContext() {
+        MyDIAndIoC.context.clear();
+    }
+
+    public <T> T inject(T object) throws InjectException {
+        try {
+            Field[] fields = object.getClass().getDeclaredFields();
+
+            for (Field field : fields) {
+                if (field.isAnnotationPresent(Inject.class)) {
+
+                    if (context.containsKey(field.getType().getName())) {
+                        field.setAccessible(true);
+                        Object injObj = context.get(field.getType().getName());
+                        field.set(object, injObj);
+                    }
+                }
+            }
+
+            Person p = null;
+            p.getFirstName();
+        } catch (Exception e) {
+            throw new InjectException("An error was made, during injection in " + object.toString(), e);
+        }
+        return object;
+    }
+
+    private void loadBeans() {
+        ArrayList<Field> reflectedFields = new ArrayList<>();
+        String filePath = "src\\main\\resources\\properties";
+
+        File file = new File(filePath);
+        Scanner scanner;
+        try {
+            scanner = new Scanner(file);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
+
+        scanner.useDelimiter(" = ");
+        while (scanner.hasNext()) {
+            String fieldName = scanner.next();
+            String className = scanner.next();
+            try {
+                context.put(fieldName, Class.forName(className).newInstance());
+                //context.put(fieldName, new QuickSort(new PersonAgeComparator()));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+
+
+

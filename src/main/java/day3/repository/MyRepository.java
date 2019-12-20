@@ -1,22 +1,44 @@
 package day3.repository;
 
+import day3.DI.Inject;
+import day3.sorts.BubbleSort;
+import day3.sorts.ISort;
 import ru.vsu.lab.repository.IRepository;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Predicate;
 
 public class MyRepository<T> implements IRepository {
+
     private T[] array;
     private T[] tempArray;
 
     private int count;
 
+    @Inject
+    ISort sorter;
+
     public MyRepository() {
         array = (T[]) new Object[16];
         count = 0;
+    }
+
+    public MyRepository(ISort sorter) {
+        array = (T[]) new Object[16];
+        count = 0;
+        this.sorter = sorter;
+    }
+
+    public T[] getArray() {
+        return array;
+    }
+
+    public ISort getSorter() {
+        return sorter;
+    }
+
+    public void setSorter(ISort sorter) {
+        this.sorter = sorter;
     }
 
     @Override
@@ -96,18 +118,14 @@ public class MyRepository<T> implements IRepository {
 
     @Override
     public void sortBy(Comparator comparator) {
-        if (count == 0 || count == 1)
+        if (comparator == null) {
             return;
-        for (int i = 0; i < count - 1; i++) {
-            int cmp = compare(array[i], array[i + 1], comparator);
-            if (cmp > 0) {
-                T temp = array[i];
-                array[i] = array[i + 1];
-                array[i + 1] = temp;
-                if (i > 0)
-                    i -= 2;
-            }
         }
+        if (sorter == null) {
+            new BubbleSort<T>(comparator).sort(array);
+            return;
+        }
+        sorter.sort(array);
     }
 
     private int compare(Object k1, Object k2, Comparator comparator) {
@@ -123,5 +141,15 @@ public class MyRepository<T> implements IRepository {
             }
         }
         return repository;
+    }
+
+    @Override
+    public String toString() {
+        return "MyRepository{" +
+                "array=" + Arrays.toString(array) +
+                ", tempArray=" + Arrays.toString(tempArray) +
+                ", count=" + count +
+                ", sorter=" + sorter +
+                '}';
     }
 }

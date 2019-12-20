@@ -68,6 +68,7 @@ public class DataLoader {
                 );
 
                 line = br.readLine();
+                localDivision = null;
             }
         } catch (
                 IOException e) {

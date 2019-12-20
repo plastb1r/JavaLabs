@@ -1,15 +1,22 @@
 package day3.entities;
 
+import day3.DI.Inject;
 import ru.vsu.lab.entities.IDivision;
 
 public class Division implements IDivision {
     private int id;
     private String name;
 
+    public Division() {
+        this.id = 0;
+        this.name = "";
+    }
+
     public Division(int id, String name) {
         this.id = id;
         this.name = name;
     }
+
 
     @Override
     public Integer getId() {
@@ -29,5 +36,13 @@ public class Division implements IDivision {
     @Override
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Division{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
