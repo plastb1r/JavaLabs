@@ -1,8 +1,9 @@
 package day3.repository;
 
-import day1.PersonAgeComparator;
-import day3.entities.Division;
-import day3.entities.Person;
+import term1.day1.PersonAgeComparator;
+import term1.day3.entities.Division;
+import term1.day3.entities.Person;
+import term1.day3.repository.MyRepository;
 import junit.framework.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

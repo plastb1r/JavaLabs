@@ -1,4 +1,4 @@
-package day1;
+package term1.day1;
 
 import ru.vsu.lab.entities.IPerson;
 

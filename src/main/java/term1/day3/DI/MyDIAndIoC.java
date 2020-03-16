@@ -1,5 +1,4 @@
-package day3.DI;
-
+package term1.day3.DI;
 
 import java.io.File;
 import java.lang.reflect.Field;
@@ -7,9 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import day1.Person;
-import day1.PersonAgeComparator;
-import day3.sorts.QuickSort;
+import term1.day1.Person;
 
 public class MyDIAndIoC {
 
@@ -51,7 +48,6 @@ public class MyDIAndIoC {
     }
 
     private void loadBeans() {
-        ArrayList<Field> reflectedFields = new ArrayList<>();
         String filePath = "src\\main\\resources\\properties";
 
         File file = new File(filePath);
@@ -69,14 +65,10 @@ public class MyDIAndIoC {
             String className = scanner.next();
             try {
                 context.put(fieldName, Class.forName(className).newInstance());
-                //context.put(fieldName, new QuickSort(new PersonAgeComparator()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+        scanner.close();
     }
 }
-
-
-
-

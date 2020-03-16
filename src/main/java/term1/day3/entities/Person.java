@@ -1,6 +1,6 @@
-package day3.entities;
+package term1.day3.entities;
 
-import day3.DI.Inject;
+import term1.day3.DI.Inject;
 import ru.vsu.lab.entities.IDivision;
 import ru.vsu.lab.entities.IPerson;
 import ru.vsu.lab.entities.enums.Gender;
@@ -20,8 +20,8 @@ public class Person implements IPerson {
     private IDivision division;
     private BigDecimal salary;
 
-    public Person(int id, String firstName, String lastName,
-                  Gender gender, LocalDate birthDay,IDivision division, BigDecimal salary) {
+    public Person(int id, String firstName, String lastName, Gender gender, LocalDate birthDay, IDivision division,
+            BigDecimal salary) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -122,28 +122,20 @@ public class Person implements IPerson {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Person person = (Person) o;
-        return this.id == person.id &&
-                this.firstName.equals(person.firstName) &&
-                this.lastName.equals(person.lastName) &&
-                this.gender == person.gender &&
-                this.division.getId() == person.division.getId() &&
-                this.division.getName().equals(person.division.getName()) &&
-                this.salary.toString().equals(person.salary.toString());
+        return this.id == person.id && this.firstName.equals(person.firstName) && this.lastName.equals(person.lastName)
+                && this.gender == person.gender && this.division.getId() == person.division.getId()
+                && this.division.getName().equals(person.division.getName())
+                && this.salary.toString().equals(person.salary.toString());
     }
 
     @Override
     public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", gender=" + gender +
-                ", birthDay=" + birthDay +
-                ", division=" + division +
-                ", salary=" + salary +
-                '}';
+        return "Person{" + "id=" + id + ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\''
+                + ", gender=" + gender + ", birthDay=" + birthDay + ", division=" + division + ", salary=" + salary
+                + '}';
     }
 
     @Override

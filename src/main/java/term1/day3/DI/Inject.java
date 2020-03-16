@@ -1,4 +1,4 @@
-package day3.DI;
+package term1.day3.DI;
 
 import java.lang.annotation.*;
 

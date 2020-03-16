@@ -1,6 +1,6 @@
-package day3.sorts;
+package term1.day3.sorts;
 
-import day1.PersonAgeComparator;
+import term1.day1.PersonAgeComparator;
 
 import java.util.Comparator;
 
@@ -9,7 +9,6 @@ public class QuickSort<T> implements ISort<T> {
     private Comparator comparator;
     private int begin;
     private int end;
-
 
     public QuickSort(Comparator comparator) {
         this.comparator = comparator;
@@ -28,7 +27,8 @@ public class QuickSort<T> implements ISort<T> {
     }
 
     private void recursiveSort(T[] array, int begin, int end) {
-        if (end <= begin) return;
+        if (end <= begin)
+            return;
 
         int pivot = end - 1;
         int counter = begin;

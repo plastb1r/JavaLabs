@@ -1,6 +1,6 @@
-package day3.entities;
+package term1.day3.entities;
 
-import day3.DI.Inject;
+import term1.day3.DI.Inject;
 import ru.vsu.lab.entities.IDivision;
 
 public class Division implements IDivision {
@@ -16,7 +16,6 @@ public class Division implements IDivision {
         this.id = id;
         this.name = name;
     }
-
 
     @Override
     public Integer getId() {
@@ -40,9 +39,6 @@ public class Division implements IDivision {
 
     @Override
     public String toString() {
-        return "Division{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return "Division{" + "id=" + id + ", name='" + name + '\'' + '}';
     }
 }

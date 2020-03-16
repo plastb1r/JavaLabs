@@ -1,10 +1,10 @@
-package day3;
+package term1.day3;
 
-import day3.DI.InjectException;
-import day3.DI.MyDIAndIoC;
-import day3.entities.Division;
-import day3.entities.Person;
-import day3.repository.MyRepository;
+import term1.day3.DI.InjectException;
+import term1.day3.DI.MyDIAndIoC;
+import term1.day3.entities.Division;
+import term1.day3.entities.Person;
+import term1.day3.repository.MyRepository;
 import ru.vsu.lab.entities.IDivision;
 import ru.vsu.lab.entities.IPerson;
 import ru.vsu.lab.factory.ILabFactory;

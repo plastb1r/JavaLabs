@@ -1,4 +1,4 @@
-package day3.DI;
+package term1.day3.DI;
 
 public class InjectException extends Exception {
     public InjectException(String message, Throwable e) {

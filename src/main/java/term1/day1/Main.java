@@ -1,21 +1,17 @@
-package day1;
+package term1.day1;
 
 import org.joda.time.DateTime;
 
 public class Main {
     public static void main(final String[] args) {
 
-        Person person1 = new Person(1, "Николай", "Иванов",
-                "мужчина", new DateTime(1991, 11, 16, 0, 0));
+        Person person1 = new Person(1, "Николай", "Иванов", "мужчина", new DateTime(1991, 11, 16, 0, 0));
 
-        Person person2 = new Person(2, "Иван", "Николаев",
-                "мужчина", new DateTime(1992, 5, 13, 0, 0));
+        Person person2 = new Person(2, "Иван", "Николаев", "мужчина", new DateTime(1992, 5, 13, 0, 0));
 
-        Person person3 = new Person(3, "Павел", "Секов",
-                "мужчина", new DateTime(1993, 1, 14, 0, 0));
+        Person person3 = new Person(3, "Павел", "Секов", "мужчина", new DateTime(1993, 1, 14, 0, 0));
 
-        Person person4 = new Person(4, "Мария", "Враночева",
-                "мужчина", new DateTime(1994, 8, 7, 0, 0));
+        Person person4 = new Person(4, "Мария", "Враночева", "мужчина", new DateTime(1994, 8, 7, 0, 0));
 
         MyList<Person> list = new MyList<Person>();
 

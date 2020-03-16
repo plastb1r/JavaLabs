@@ -1,12 +1,10 @@
-package day1;
+package term1.day1;
 
 import java.util.Comparator;
-import java.util.TreeSet;
 
 public class MyList<T> {
     /**
-     * Массивы, необходимые для хранения элементов,
-     * и реализации функционала класса
+     * Массивы, необходимые для хранения элементов, и реализации функционала класса
      */
     private T[] array;
     private T[] tempArray;
@@ -49,9 +47,8 @@ public class MyList<T> {
     }
 
     /**
-     * Вставка нового элемента
-     * по определенному индексу.
-     * со сдвигом последующих элементов
+     * Вставка нового элемента по определенному индексу. со сдвигом последующих
+     * элементов
      *
      * @param index место вставки
      * @param value значение элемента
@@ -73,8 +70,7 @@ public class MyList<T> {
     }
 
     /**
-     * Удаление первого встречного элемента
-     * из списка по значению.
+     * Удаление первого встречного элемента из списка по значению.
      *
      * @param value значение удаляемого элемента
      */
@@ -113,21 +109,22 @@ public class MyList<T> {
 
     public T get(int index) {
         if (index < 0 || index >= count) {
-            return null;    //Optional.empty
+            return null; // Optional.empty
         }
         return array[index];
     }
+
     public void sort() {
         if (count == 0 || count == 1)
             return;
-        for (int i = 0; i < count-1;i++) {
-            int cmp = compare(array[i],array[i+1]);
-            if(cmp>0) {
-               T temp =  array[i];
-               array[i] = array[i+1];
-               array[i+1] = temp;
-                if(i>0)
-                    i-=2;
+        for (int i = 0; i < count - 1; i++) {
+            int cmp = compare(array[i], array[i + 1]);
+            if (cmp > 0) {
+                T temp = array[i];
+                array[i] = array[i + 1];
+                array[i + 1] = temp;
+                if (i > 0)
+                    i -= 2;
             }
         }
     }
@@ -138,7 +135,7 @@ public class MyList<T> {
 
     public int search(T obj) {
         for (int i = 0; i < count; i++) {
-            if(array[i].hashCode() == obj.hashCode()) {
+            if (array[i].hashCode() == obj.hashCode()) {
                 return i;
             }
         }

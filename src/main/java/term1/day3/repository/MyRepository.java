@@ -1,8 +1,8 @@
-package day3.repository;
+package term1.day3.repository;
 
-import day3.DI.Inject;
-import day3.sorts.BubbleSort;
-import day3.sorts.ISort;
+import term1.day3.DI.Inject;
+import term1.day3.sorts.BubbleSort;
+import term1.day3.sorts.ISort;
 import ru.vsu.lab.repository.IRepository;
 
 import java.util.*;
@@ -145,11 +145,7 @@ public class MyRepository<T> implements IRepository {
 
     @Override
     public String toString() {
-        return "MyRepository{" +
-                "array=" + Arrays.toString(array) +
-                ", tempArray=" + Arrays.toString(tempArray) +
-                ", count=" + count +
-                ", sorter=" + sorter +
-                '}';
+        return "MyRepository{" + "array=" + Arrays.toString(array) + ", tempArray=" + Arrays.toString(tempArray)
+                + ", count=" + count + ", sorter=" + sorter + '}';
     }
 }

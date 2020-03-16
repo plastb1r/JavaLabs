@@ -1,4 +1,4 @@
-package day3.sorts;
+package term1.day3.sorts;
 
 import java.util.Comparator;
 

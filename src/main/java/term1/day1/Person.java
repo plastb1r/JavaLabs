@@ -1,9 +1,6 @@
-package day1;
+package term1.day1;
 
 import org.joda.time.DateTime;
-
-import java.util.Comparator;
-import java.util.TreeSet;
 
 /**
  * Тестовый класс, описывающий человека
@@ -15,8 +12,7 @@ public class Person {
     private String gender;
     private DateTime birthDay;
 
-    public Person(int id, String firstName, String secondName,
-                  String gender, DateTime birthDay) {
+    public Person(int id, String firstName, String secondName, String gender, DateTime birthDay) {
         this.id = id;
         this.firstName = firstName;
         this.secondName = secondName;
@@ -25,8 +21,7 @@ public class Person {
     }
 
     /**
-     * Возвращает возраст человека,
-     * на основе его даты рождения
+     * Возвращает возраст человека, на основе его даты рождения
      *
      * @return колличество лет
      */

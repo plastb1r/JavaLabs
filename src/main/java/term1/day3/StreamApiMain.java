@@ -1,4 +1,4 @@
-package day3;
+package term1.day3;
 
 //day 4 String Api
 //зп по отделениям
@@ -9,8 +9,8 @@ package day3;
 //свои аннотации для дальнейшего инджекшена в фабриках универсальный Inject.injection(new Class());
 // сортировки в разные классы от интерфейса
 
-import day3.entities.Person;
-import day3.repository.MyRepository;
+import term1.day3.entities.Person;
+import term1.day3.repository.MyRepository;
 import ru.vsu.lab.entities.IDivision;
 
 import java.math.BigDecimal;
@@ -23,10 +23,9 @@ public class StreamApiMain {
     public static void main(String[] args) {
         List<Person> list = DataLoader.load().toList();
 
-        List<Person> filtredList1 = list.stream()
-                .filter(x -> (x.getFirstName().contains("a") || x.getFirstName().contains("A")) &&
-                        (x.getAge() > 30) &&
-                        (x.getSalary().compareTo(new BigDecimal("5000")) > 0))
+        List<Person> filtredList1 = list
+                .stream().filter(x -> (x.getFirstName().contains("a") || x.getFirstName().contains("A"))
+                        && (x.getAge() > 30) && (x.getSalary().compareTo(new BigDecimal("5000")) > 0))
                 .collect(Collectors.toList());
 
         for (Person person : filtredList1) {

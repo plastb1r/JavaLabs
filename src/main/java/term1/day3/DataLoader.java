@@ -1,10 +1,9 @@
-package day3;
+package term1.day3;
 
-import day3.entities.Division;
-import day3.entities.Person;
-import day3.repository.MyRepository;
+import term1.day3.entities.Division;
+import term1.day3.entities.Person;
+import term1.day3.repository.MyRepository;
 import ru.vsu.lab.entities.enums.Gender;
-import ru.vsu.lab.repository.IRepository;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,11 +11,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashSet;
 
 public class DataLoader {
 
@@ -41,10 +38,8 @@ public class DataLoader {
                 lines = line.split(";");
 
                 String[] date = lines[3].split("\\.");
-                int[] intDate = new int[]{
-                        Integer.parseInt(date[0]),
-                        Integer.parseInt(date[1]),
-                        Integer.parseInt(date[2])};
+                int[] intDate = new int[] { Integer.parseInt(date[0]), Integer.parseInt(date[1]),
+                        Integer.parseInt(date[2]) };
 
                 for (Division division : divisions) {
                     if (division.getName().equals(lines[4])) {
@@ -57,21 +52,14 @@ public class DataLoader {
                     localDivision = divisions.get(numOfDivision - 1);
                 }
 
-                repository.add(
-                        new Person(
-                                Integer.parseInt(lines[0]), lines[1], lines[1],
-                                lines[2].equals("Male") ? Gender.MALE : Gender.FEMALE,
-                                LocalDate.of(intDate[2], intDate[1], intDate[0]),
-                                localDivision,
-                                new BigDecimal(lines[5])
-                        )
-                );
+                repository.add(new Person(Integer.parseInt(lines[0]), lines[1], lines[1],
+                        lines[2].equals("Male") ? Gender.MALE : Gender.FEMALE,
+                        LocalDate.of(intDate[2], intDate[1], intDate[0]), localDivision, new BigDecimal(lines[5])));
 
                 line = br.readLine();
                 localDivision = null;
             }
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return repository;
